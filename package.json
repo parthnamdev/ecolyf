@@ -1,0 +1,19 @@
+{
+  "name": "ecolyf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parthnamdev/ecolyf.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/parthnamdev/ecolyf/issues"
+  },
+  "homepage": "https://github.com/parthnamdev/ecolyf#readme"
+}
