@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="fontawesome-free/css/all.min.css">
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- custom stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+
+    <title>Admin</title>
+</head>
+<body onload="hide_loading()">
+  <div class="load_div">
+    <div class="spinner-border text-light p-4 spin-load" role="status">
+      <div class="sr-only">Loading...</div>
+    </div>
+  </div>
+  
+  <section class="main-background">
+    <div class="container-fluid">
+    <section id="header">
+        <div class="">
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="/admin"><img src="bicycle.png" alt="" style="width: 40px;"> Ecolyf</a>
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                <i class="fas fa-ellipsis-v nav-toggler-icon"></i>
+                <!-- <span class="navbar-toggler-icon"></span> -->
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/admin">Add cycle</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/admin/stand">Add stand</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                      <div class="dropdown">
+                        <button class="btn dropdown-toggle nav-btn mx-auto" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Profile <i class="fas fa-user-circle"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="/admin/logout">Logout <i class="fas fa-sign-out-alt"></i></a>
+                        </div>
+                      </div>
+                    </li>
+                   
+                  </ul>
+                </div>
+              </nav>
+        </div>
+    </section>
+    <div class="">
+      <h5 class="mb-5 green"><%= msg %></h5>
+      <h1>Add Cycle</h1>
+    </div>
+    <section id="location" class="">
+  
+          <form action="/admin/addcycle" method="POST" class="auth-form text-center">
+            <div id="stickySearchBar">
+      
+              <div class="sticky-search-box mx-auto">
+                  <!-- <form method="post" action="/user/getAvail" id="wordSubmit" enctype="application/x-www-form-urlencoded"> -->
+                    <input method="" name="input" action="" class="sticky-input-box search-tag" type="text" id="word_input" autocomplete="off" autofocus required
+                      placeholder="Search location" />
+                      
+                    <!-- <button class="sticky-button" href="" id="searchbtn"> -->
+                      <!-- <i class="fas fa-search"></i> -->
+                    <!-- </button> -->
+                  <!-- </form> -->
+                  <script>
+                    var input = document.getElementById("word_input");
+                
+                      input.addEventListener("keyup", function (event) {
+                      // Number 13 is the "Enter" key on the keyboard
+                      if (event.keyCode === 13) {
+                        // Cancel the default action, if needed
+                        event.preventDefault();
+                        // Trigger the button element with a click
+                        document.getElementById("searchbtn").click();
+                      }
+                    });
+                  </script>
+                  <div class="suggestions"></div>
+                  
+                </div>
+              </div>
+            <div class="row col-lg-7 col-md-8 col-sm-10 mx-auto">
+            <div class="col-lg-6">
+              <label for="quantity" class="form-label">Quantity</label>
+              <input type="number" class="form-control" name="quantity" id="quantity">
+            </div>
+            <div class="col-lg-6 ">
+              <label for="price" class="form-label">Price</label>
+              <input type="number" class="form-control" name="price" id="price">
+            </div>
+            <div class="col-lg-6 ">
+              <label for="company" class="form-label">Company</label>
+              <input type="text" class="form-control" name="company" id="company">
+            </div>
+            <div class="col-lg-6 mt-5">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="cycleType" id="Geared" value="Geared" checked>
+                <label class="form-check-label" for="Geared">Geared</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="cycleType" id="Regular" value="Regular">
+                <label class="form-check-label" for="Regular">Regular</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="cycleType" id="Diva" value="Diva">
+                <label class="form-check-label" for="Diva">Diva</label>
+              </div>
+            </div>
+            </div>
+              <div class="row">
+              <button type="submit" class="btn btn-outline-primary btn-seller col-sm-3 mx-auto">Add</button>
+              </div>
+            </form>
+      
+      
+      <a class="btn btn-outline-light mt-5" href="/admin/logout" role="button">Back to Home</a>
+  </section>
+  </div>
+    <section id="footer">
+        <div class="container-fluid">
+          <p>© Copyright <span id="Copyright"></span> Ecolyf</p>
+          <a href="/admin/login" class="nav-link">Admin</a>
+        </div>
+    </section>
+  </section>
+  <script src="script.js"></script>
+  <script src="citySuggestion2.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://kit.fontawesome.com/7b6c0285c8.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.8.1/lottie.min.js" integrity="sha512-V1YyTKZJrzJNhcKthpNAaohFXBnu5K9j7Qiz6gv1knFuf13TW/3vpgVVhJu9fvbdW8lb5J6czIhD4fWK2iHKXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    function animate(data, id) {
+      return bodymovin.loadAnimation({
+        container: document.getElementById(id), 
+        path: data, 
+        renderer: 'svg',
+        loop: true, 
+        autoplay: true, 
+      });
+    }
+
+    var img1 = animate('bike0.json', 'img1');
+    var img2 = animate('discount.json', 'img2');
+    var img3 = animate('bike.json', 'img3');
+    var img4 = animate('eco.json', 'img4');
+  </script>
+</body>
+</html>
